@@ -108,7 +108,7 @@ Accept: */*
 ```
 Right now we are just going to focus on the first line, `GET / HTTP/1.1`.  We know from rigorous study of the HTTP protocol that this request line tells us the `method` followed by the `path` followed by the `protocol`. We can use this information to decide how to respond.
 
-Ok. So we can get access to our request. Now we want to start making decisions based on the requested `path`. Modify your code in `server.py` so that a request to `/` responds with our `<html><body><h1>Hello World!</h1></body></html>`, but a request to `/time` returns the current time. 
+Ok. So we can get access to our request. Now we want to start making decisions based on the requested `path`. Modify your code in `server.py` so that a request to `/hello` responds with our `<html><body><h1>Hello World!</h1></body></html>`, but a request to `/time` returns the current time. 
 
 
 ## Release 3 - Request Parsing
@@ -142,7 +142,7 @@ while True:
     request_text = client_connection.recv(1024).decode('utf-8')
     request = Request(request_text) # create a request object. 
 
-    if request.path == '/':
+    if request.path == '/hello':
         protocol = 'HTTP/1.1 200 OK\r\n'
         body_response = '<html><body><h1>Hello World!</h1></body></html>'
         content_type = 'Content Type: text/html\r\n'
