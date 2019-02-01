@@ -52,7 +52,7 @@ We'll set up our server to send back a response. For now, we'll respond to every
 
 Notice that above we set two variables we haven't used yet. `client_connection` and `client_address`. Let's think of `client_connection` as our direct line to the client. This is how we will be able to send and receive data.  
 
-Take a look at the [docs for socket](https://docs.python.org/2/library/socket.html#socket.AF_INET). What method can you use to send some data back to the client? Where will this code need to go? 
+Take a look at the [docs for socket](https://docs.python.org/3/library/socket.html). What method can you use to send some data back to the client? Where will this code need to go? 
 
 Modify the code in `server.py` so that each time the client makes an HTTP `GET` request to 
 our server, they get `Hello World!` as a response. 
