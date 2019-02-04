@@ -121,13 +121,9 @@ At this point we are not doing a great job of separating our concerns. Our serve
 # request.py 
 class Request: 
   
-  def __init__(self, request_text):
-    self.request      = request_text.split('\r\n')
-    self.request_line = self.request.pop(0).split(' ')
-    self.headers      = self.parse_headers()
-    self.method       = self.request_line[0]
-    self.path         = self.request_line[1]
-    self.url          = self.headers['host']
+  class Request:
+    def __init__(self, request_text):
+      self.parse_request(request_text.recv(1024).decode('utf-8').split('\r\n'))
 
 ```
 
@@ -137,26 +133,25 @@ Now we can update our `server.py` file to use our new `Request` class.
 ```Python
 # server.py 
 # ............this is not the complete file. You'll have code above and below what is shown here. 
-while True:
-  
-    client_connection, client_address = listen_socket.accept()
-    # we listen for a request. Then we need to convert it from bytes to a string with decode. 
-    request_text = client_connection.recv(1024).decode('utf-8')
-    request = Request(request_text) # create a request object. 
+import socket
+import datetime
+from request import Request
 
-    if request.path == '/hello':
-        protocol = 'HTTP/1.1 200 OK\r\n'
-        body_response = '<html><body><h1>Hello World!</h1></body></html>'
-        content_type = 'Content Type: text/html\r\n'
-        content_length = f'Content Length: {len(body_response)}\r\n'
-        
-        client_connection.send(protocol.encode())
-        client_connection.send(content_type.encode())
-        client_connection.send(content_length.encode())
-        client_connection.send('\r\n'.encode())
-        client_connection.send(body_response.encode())
-    elif request.path == '/time':
-        # Your code here 
+def build_html_response(text_body):
+  html_body = f'<html><head><title>An Example Page</title></head><body>{text_body}</body></html>'
+  return f"HTTP/1.1 200 OK\r\nContent-Type:text/html\r\nContent-Length:{len(html_body)}\r\n\r\n{html_body}"
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('localhost', 9291))
+
+while True:
+    server.listen()
+    client_connection, _client_address = server.accept()
+    client_request = Request(client_connection)
+    if client_request.parsed_request['urn'] == '/':
+        client_connection.send(build_html_response('Hello World').encode())
+    elif client_request.parsed_request['urn'] == '/time':
+        # Your code here
         
 ```
 Be sure to import our new file. Then we create a new instance of `Request` and pass it our `request_text` variable. Our program should run as before. 
