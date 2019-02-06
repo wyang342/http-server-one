@@ -115,11 +115,9 @@ First, let's create a new file `request.py` and build out our class. Here's some
 
 ```Python 
 # request.py 
-class Request: 
-  
-  class Request:
+class Request:
     def __init__(self, request_text):
-      self.parse_request(request_text.recv(1024).decode('utf-8').split('\r\n'))
+        self.parse_request(request_text.recv(1024).decode('utf-8').split('\r\n'))
 
 ```
 
