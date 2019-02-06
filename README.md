@@ -106,7 +106,7 @@ User-Agent: curl/7.60.0
 Accept: */*
 ```
 
-Based off of the URN, we want to be able to route the user to different pages. Your job is to parse the request and get the URN. If the URN is `/`, respond with 'Hello World'. If the URN is `/time`, respond with the current time. 
+Based off of the URI, we want to be able to route the user to different pages. Your job is to parse the request and get the URI. If the URI is `/`, respond with 'Hello World'. If the URI is `/time`, respond with the current time. 
 
 ## Release 3 - Decoupling our code
 At this point we are not doing a great job of separating our concerns (i.e., following the single responsibility principle). Our server should just be in charge of getting a request and serving up a response. Let's create a `Request` class to handle parsing our request to make it easier to handle. 
