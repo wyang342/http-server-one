@@ -68,7 +68,7 @@ Try making a couple of requests with Curl. Your server should respond each time 
 ## Release 1 - HTTP Protocol
 Right now, we are responding with a simple string. Let's modify our code to respond with a standard HTTP response. [This article](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177) is a great resource if you're not already familiar with HTTP.
 
-It's important that we format our response correctly. According to the HTTP protocol, Chrome requires the following headers:
+It's important that we format our response correctly. In order for our response to show up in Chrome, we must include at least the following:
 * HTTP protocol (`HTTP/1.1 STATUS_CODE REASON_PHRASE`)
 * Content-Type (what type of content you are sending back)
 * Content-Length 
