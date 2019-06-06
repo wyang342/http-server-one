@@ -9,7 +9,7 @@ HTTP servers speak over the networking protocol TCP/IP. It turns out HTTP reques
 Lucky for us, we don't have to learn TCP/IP from scratch to write an HTTP server. Python ships with a TCP server library called `socket` that we can use, allowing us to focus on HTTP.
 
 #### TCP/IP Hello World
-Let's start by creating a simple [TCP server in Python](https://docs.python.org/2/library/socket.html#socket.AF_INET), here's an example:
+Let's start by creating a simple [TCP server in Python](https://docs.python.org/3/library/socket.html), here's an example:
 
 ```Python
 # server.py
