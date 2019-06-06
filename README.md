@@ -66,7 +66,7 @@ One thing we can do right now is to use a `while` loop to keep the server runnin
 Try making a couple of requests with Curl. Your server should respond each time and shouldn't stop running until you press `ctrl + c`. We'll still have to stop and start our server when we make changes to the code, but at least we can make multiple requests without the program exiting.
 
 ## Release 1 - HTTP Protocol
-Right now, we are responding with a simple string. Let's modify our code to respond with a standard HTTP response. [This article](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177) is a great resource if you're not already familiar with HTTP.
+Right now, we are responding with a simple string. Let's modify our code to respond with a standard HTTP response. You don't have to read [this article](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177) to complete this challenge, but it's a great resource if you're not already familiar with HTTP.
 
 It's important that we format our response correctly. In order for our response to show up in Chrome, we must include at least the following in our string:
 * HTTP protocol (`HTTP/1.1 STATUS_CODE REASON_PHRASE`)
