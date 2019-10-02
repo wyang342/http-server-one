@@ -132,7 +132,7 @@ class Request:
 Take some time to figure out what's going on and finish fleshing out the `parse_request()` method. In the end, you want this method to return a dictionary that contains all the headers from the HTTP request: 
 
 ```python
-{'host': 'localhost:9292', 'urn': '/', 'user-agent': 'curl/7.60.0', 'accept': '*/*', }
+{'host': 'localhost:9292', 'uri': '/', 'user-agent': 'curl/7.60.0', 'accept': '*/*', }
 ```
 
 After that's done, we can update our `server.py` file to use our new `Request` class: 
