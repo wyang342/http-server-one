@@ -87,8 +87,9 @@ You need a carriage return (`\r\n`) between every line.
 <details>
 <summary>HTTP Hint</summary>
 <br>
-The below is a string representation of the HTTP Protocol. 
-"HTTP/1.1 200 OK\r\nContent-Type:text/html\r\nContent-Length:len(html_text)\r\n\r\n{html}"
+The below is a string representation of the HTTP Protocol.
+   
+"HTTP/1.1 200 OK\r\nContent-Type:text/html\r\nContent-Length:len(html_text)\r\n\r\n{html_text}"
 
 </details>
 
