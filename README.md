@@ -47,7 +47,7 @@ As the client, we want to be able to make a request to the server listening on p
 - [Postman](https://www.getpostman.com) - a GUI request maker
 - [Curl](https://curl.haxx.se/) - a non GUI request maker
 
-Let's start with Curl. Open a separate command line window and run:
+Let's start with Curl. __Open a separate command line window and run:__
 
 ```sh
 $ curl http://localhost:9292
