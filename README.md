@@ -105,7 +105,7 @@ Once the output from `curl` looks correct, try making a request with a browser. 
 ## Release 2 - Parsing our Request
 We are currently ignoring the request. We want our server to be able to respond in different ways depending on what kind of request the client sends. Start by checking the [socket documentation](https://docs.python.org/3/library/socket.html) to find a method that will allow you to `recv` data from the client.
 
-Sockets in Python receive data as `bytes`. You will have to use `.decode('utf-8')` to convert those bytes to strings.
+__Sockets in Python receive data as `bytes`. You will have to use `.decode('utf-8')` to convert those bytes to strings.__
 
 Once you figure out how to receive data, print the request to the terminal. You should have something like this:  
 
