@@ -132,7 +132,7 @@ First, let's create a new file `request.py` and build out our class:
 # request.py 
 class Request:
     def __init__(self, request_text):
-        self.parse_request(request_text.recv(1024).decode('utf-8').split('\r\n'))
+        self.parse_request(request_text.recv(4096).decode('utf-8').split('\r\n'))
     
     def parse_request(self, decoded_request_text):
         self.parsed_request = {}
